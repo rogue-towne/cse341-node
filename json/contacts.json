@@ -1,0 +1,23 @@
+{
+  "contact1": {
+    "firstName": "Shannon",
+    "lastName": "Towne",
+    "email": "strwbrryg1rl@gmail.com",
+    "favoriteColor": "Pink",
+    "birthday": "10/23/1996"
+  },
+  "contact2": {
+    "firstName": "Kaeley",
+    "lastName": "Jones",
+    "email": "kjkul8@gmail.com",
+    "favoriteColor": "Turqoise",
+    "birthday": "12/30/2002"
+  },
+  "contact3": {
+    "firstName": "Daniel",
+    "lastName": "Hall",
+    "email": "dh78@gmail.com",
+    "favoriteColor": "Red",
+    "birthday": "02/18/1996"
+  }
+}
