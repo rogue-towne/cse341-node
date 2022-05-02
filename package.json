@@ -2,7 +2,7 @@
   "name": "cse341-node",
   "version": "1.0.0",
   "description": "code for cse341 course",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
