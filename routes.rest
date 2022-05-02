@@ -1,12 +1,18 @@
-//GET  http://localhost:8080/contacts/626daf33250f564918196a24
-// LOCALHOST 
-### GET http://localhost:8080/contacts 
-### GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b2 
-### GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b3 
-### GET http://localhost:8080/contacts/622023f642f9ab4cd6e060b4
+///Local Deployments:
+GET http://localhost:3000/contacts
+### 
+GET http://localhost:3000/contacts/626daf33250f564918196a24
+###
+GET http://localhost:3000/contacts/626daf33250f564918196a25
+###
+GET http://localhost:3000/contacts/626daf33250f564918196a26
 
-// PRODUCTION Deploy 
-### GET https://cse341-instructor.herokuapp.com/contacts 
-### GET https://cse341-instructor.herokuapp.com/contacts/622023f642f9ab4cd6e060b2 
-### GET https://cse341-instructor.herokuapp.com/contacts/622023f642f9ab4cd6e060b3 
-### GET https://cse341-instructor.herokuapp.com/contacts/622023f642f9ab4cd6e060b4
+// Heroku Deployments:
+###
+GET https://cse341course.herokuapp.com/contacts
+###
+GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a24
+###
+GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a25
+###
+GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a26
