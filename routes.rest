@@ -43,7 +43,7 @@ GET https://cse341course.herokuapp.com/contacts/6277234cc293c73bf614eb74
 ###
 GET https://cse341course.herokuapp.com/contacts/62771c3449dbb431629af346
 ###
-POST https://cse341course.herokuapp.com/contacts/
+POST https://cse341course.herokuapp.com/contacts
 content-type: application/json
 
 {
