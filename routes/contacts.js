@@ -1,60 +1,87 @@
-const routes = require('express').Router();
-const connect = require("../DB/connection");
-//const contactsController = require("../controllers/contacts");
-const ObjectId = require('mongodb').ObjectId;
-const Post = require('../models/contacts')
+const express = require('express')
+const router = express.Router()
+const Contact = require('../models/contacts')
 
+//Gets all Contacts
+router.get('/', async (req, res) => {
+  try {
+      const contacts = await Contact.find()
+      res.json(contacts)
+  } catch (err) {
+      res.status(500).json({ message: err.message})
+  }
+})
 
-// routes.use(bodyparser.urlencoded({extended:false}));
-// routes.use(bodyparser.json());
+//Gets One Contact
+router.get('/:id', getContact, (req, res) => {
+  res.json(res.contact)
+})
 
-routes.get('/', (req, res) => {
-  const results = connect.getCollection().find();
-  results.toArray().then((documents) => {
-    res.status(200).json(documents);
-    console.log("Returned All Contacts")
-  }); 
-});
+//Create a Contact
+router.post('/', async (req, res) => {
+  const contact = new Contact({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      favoriteColor: req.body.favoriteColor,
+      birthday: req.body.birthday
+  })
 
-routes.get('/:id', (req, res) => {
-  const contactId = new ObjectId(req.params.id);
-  const results = connect.getCollection().find({_id: contactId});
-  results.toArray().then((documents) => {
-    res.status(200).json(documents[0]);
-    console.log(`Returned Contact ${req.params.id}`);
-  }); 
-});
+  try {
+      const newContact = await contact.save()
+      res.status(201).json(newContact)
+  } catch (err){
+      res.status(400).json({message: err.message})
+  }
+})
 
-routes.post('/', (req, res) => {
-  console.log(req.body);
-});
+//Update a Contact
+router.put('/:id', getContact, async (req, res) => {
+  if (req.body.firstName != null){
+      res.contact.firstName = req.body.firstName
+  }
+  if (req.body.lastName != null){
+    res.contact.lastName = req.body.lastName
+  }
+  if (req.body.email != null){
+    res.contact.email = req.body.email
+  }
+  if (req.body.favoriteColor != null){
+    res.contact.favoriteColor = req.body.favoriteColor
+  }
+  if (req.body.birthday != null){
+    res.contact.birthday = req.body.birthday
+  }
+  try {
+      const updatedContact = await res.contact.save()
+      res.json(updatedContact)
+  } catch (err){
+      res.status(400).json({message: err.message})
+  }
+})
 
+//Delete A Contact
+router.delete('/:id', getContact, async (req, res) => {
+  try {
+      await res.contact.remove()
+      res.json({message: "Deleted Contact"})
+  } catch (err) {
+      res.status(500).json({message: err.message})
+  }
+})
 
-// routes.post('/', (req, res) => {
-//   const newContact = {
-//     firstName: req.body.firstName,
-//     lastName: req.body.lastName,
-//     email: req.body.email,
-//     favoriteColor: req.body.favoriteColor,
-//     birthday: req.body.birthday
-//   };
+async function getContact(req, res, next) {
+  let contact;
+  try {
+      contact = await Contact.findById(req.params.id)
+      if (contact == null) {
+          return res.status(404).json({message: 'Cannot find contact'})
+      }
+  } catch (err){
+      return res.status(500).json({message: err.message})
+  }
+  res.contact = contact
+  next()
+}
 
-//   const results = connect.getCollection().insertOne(
-//     newContact
-//     // {
-//     //   "contact4": {
-//     //   firstName: "Tony", 
-//     //   lastName: "Stark",
-//     //   email: "stark@email.com",
-//     //   favoriteColor: "Purple",
-//     //   birthday: "05/12/1981"
-//     // }}
-//   );
-//   if (results.acknowledged){
-//     res.status(201).json(results);
-//   } else {
-//     res.status(500).json(results.error || 'An error occured while creating contact.')
-//   }
-// });
-
-module.exports = routes;
+module.exports = router

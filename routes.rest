@@ -1,30 +1,68 @@
 ///Local Deployments:
-GET http://localhost:3000/contacts
+GET http://localhost:8080/contacts
 ### 
-GET http://localhost:3000/contacts/626daf33250f564918196a24
+GET http://localhost:8080/contacts/62771b5949dbb431629af340
 ###
-GET http://localhost:3000/contacts/626daf33250f564918196a25
+GET http://localhost:8080/contacts/6277234cc293c73bf614eb74
 ###
-GET http://localhost:3000/contacts/626daf33250f564918196a26
+GET http://localhost:8080/contacts/62771c3449dbb431629af346
 ###
-POST http://localhost:8080/contacts HTTP/1.1
+POST http://localhost:8080/contacts
 content-type: application/json
 
 {
-    "firstName":"Tony",
-    "lastName":"Stark",
-    "email":"stark@email.com",
-    "favoriteColor":"Purple",
-    "birthday":"05/12/1981"
+    "firstName": "Shannon",
+    "lastName": "Towne",
+    "email": "strwbrryg1rl@gmail.com",
+    "favoriteColor": "Pink",
+    "birthday": "10/23/1996"
 }
+###
+
+PUT http://localhost:8080/contacts/62771b5949dbb431629af340
+Content-Type: application/json
+
+{
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "email": "tstark@email.com",
+    "favoriteColor": "Red",
+    "birthday": "09/30/1981"
+}
+###
+
+DELETE http://localhost:8080/contacts/6277234cc293c73bf614eb74
 
 // Heroku Deployments:
 ###
 GET https://cse341course.herokuapp.com/contacts
 ###
-GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a24
+GET https://cse341course.herokuapp.com/contacts/62771b5949dbb431629af340
 ###
-GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a25
+GET https://cse341course.herokuapp.com/contacts/6277234cc293c73bf614eb74
 ###
-GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a26
+GET https://cse341course.herokuapp.com/contacts/62771c3449dbb431629af346
+###
+POST https://cse341course.herokuapp.com/contacts/
+content-type: application/json
 
+{
+    "firstName": "Shannon",
+    "lastName": "Towne",
+    "email": "strwbrryg1rl@gmail.com",
+    "favoriteColor": "Pink",
+    "birthday": "10/23/1996"
+}
+###
+PUT https://cse341course.herokuapp.com/contacts/62771b5949dbb431629af340
+Content-Type: application/json
+
+{
+    "firstName": "Tony",
+    "lastName": "Stark",
+    "email": "tstark@email.com",
+    "favoriteColor": "Red",
+    "birthday": "09/30/1981"
+}
+###
+DELETE https://cse341course.herokuapp.com/contacts/6277234cc293c73bf614eb74

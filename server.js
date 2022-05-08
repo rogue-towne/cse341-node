@@ -8,7 +8,7 @@ const port = process.env.PORT || 8080;
 mongoose.connect(process.env.DB_URL)
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
-db.once('open', () => concole.log('Connected to Database'))
+db.once('open', () => console.log('Connected to Database'))
 
 
 app.use(express.json())

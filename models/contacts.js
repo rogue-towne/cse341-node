@@ -21,6 +21,6 @@ const contactSchema = new mongoose.Schema({
         type: String,
         required: true
     }
-})
+}, { collection : 'contacts' })
 
 module.exports = mongoose.model('Contact', contactSchema);
