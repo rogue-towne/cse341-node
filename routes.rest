@@ -6,6 +6,17 @@ GET http://localhost:3000/contacts/626daf33250f564918196a24
 GET http://localhost:3000/contacts/626daf33250f564918196a25
 ###
 GET http://localhost:3000/contacts/626daf33250f564918196a26
+###
+POST http://localhost:8080/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Tony",
+    "lastName":"Stark",
+    "email":"stark@email.com",
+    "favoriteColor":"Purple",
+    "birthday":"05/12/1981"
+}
 
 // Heroku Deployments:
 ###
@@ -16,3 +27,4 @@ GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a24
 GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a25
 ###
 GET https://cse341course.herokuapp.com/contacts/626daf33250f564918196a26
+
