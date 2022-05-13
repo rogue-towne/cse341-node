@@ -5,7 +5,7 @@
     "description": "Includes contact info and some extra info about people",
     "version": "1.0.0"
   },
-  "host": "https://cse341course.herokuapp.com/",
+  "host": "https://cse341course.herokuapp.com",
   "basePath": "/",
   "schemes": [
     "http"
