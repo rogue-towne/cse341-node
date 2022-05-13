@@ -3,6 +3,9 @@ const app = express()
 const mongoose = require('mongoose')
 require('dotenv').config()
 
+const swaggerUI = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 const port = process.env.PORT || 8080;
 
 mongoose.connect(process.env.DB_URL,{ useNewUrlParser: true })
@@ -12,6 +15,7 @@ db.once('open', () => console.log('Connected to Database'))
 
 
 app.use(express.json())
+app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(swaggerDocument))
 
 const router = require('./routes/index')
 app.use('/', router)

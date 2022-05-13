@@ -3,5 +3,6 @@ const router = express.Router()
 
 router.use('/', require('./home'));
 router.use('/contacts', require('./contacts'));
+router.use('/', require('./swagger'));
 
 module.exports = router;
