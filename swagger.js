@@ -5,7 +5,7 @@ const doc = {
     title: 'Contacts Api',
     description: 'Includes contact info and some extra info about people',
   },
-  host: 'https://cse341course.herokuapp.com/',
+  host: 'https://cse341course.herokuapp.com',
   schemes: ['http'],
 };
 
