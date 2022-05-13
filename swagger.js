@@ -6,7 +6,7 @@ const doc = {
     description: 'Includes contact info and some extra info about people',
   },
   host: 'cse341course.herokuapp.com',
-  schemes: ['http', 'https'],
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
